@@ -1,0 +1,39 @@
+<section class="container">
+    <div class="row">
+        <div class="col-12">
+            <form class="model" [formGroup]="User" (ngSubmit)="saveData()">
+                <div class="modal-header">
+                    <h4 class="modal-title">{{edit_Add_Data?.type}} Book Details</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <label for="title" class="col">Title</label>
+                        <input type="text" formControlName="bookTitle" id="title" class="col">
+                    </div>
+                    <div class="row mb-3">
+                        <label for="auth" class="col">Author</label>
+                        <input type="text" formControlName="author" id="auth" class="col">
+                    </div>
+                    <div class="row mb-3">
+                        <label for="yop" class="col">Year of Publishing</label>
+                        <input type="date" formControlName="yearofPub" id="yop" class="col">
+                    </div>
+                    <div class="row">
+                        <label for="cate" class="col">Category</label>
+                        <select name="catego" id="cate" formControlName="category" >
+                            <option [value]="categoryList._id" id="cate" class="col" *ngFor="let categoryList of categoryLists">{{categoryList.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-outline-dark" [disabled]="User.invalid">Save</button>
+                    <button type="button" class="btn btn-outline-dark"
+                        (click)="activeModal.close('Close click')">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

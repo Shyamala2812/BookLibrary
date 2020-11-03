@@ -1,0 +1,24 @@
+<section class="container">
+  <div class="row">
+    <div class="col-12">
+      <form class="model" [formGroup]="list" (ngSubmit)="saveData()">
+        <div class="modal-header">
+          <h4 class="modal-title">{{edit_Add_Data?.type}} Category</h4>
+          <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <label for="category" class="mr-3">Category</label>
+            <input type="text" formControlName="categoryName" id="category">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-outline-dark" [disabled]="list.invalid">Save</button>
+          <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

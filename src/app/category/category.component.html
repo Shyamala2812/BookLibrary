@@ -1,0 +1,26 @@
+<div>
+    <div class="d-flex justify-content-between my-4">
+        <h3>Categories</h3>
+        <button class="btn btn-success rounded-pill" (click)="addCategoryToList()">Add Category</button>
+    </div>
+    <p *ngIf="counter > 0">There is no Category</p>
+    <table class="table" *ngIf="categorylists">
+        <tr class="row">
+            <th class="col-2">S.No</th>
+            <th class="col-2">Category</th>
+            <th class="col-2">No.Of Books</th>
+            <th class="col">Actions</th>
+        </tr>
+        <tr *ngFor="let category of categorylists; let i = index" class="row">
+            <td class="col-2">{{i+1}}</td>
+            <td class="col-2">{{category.name}}</td>
+            <td class="col-2">{{category.NoofBooks.length}}</td>
+            <td class="d-flex col">
+                <div class="row">
+                    <span class="mr-3 col" (click)="editCategoryList(category)"><i class="fas fa-user-edit"></i> </span>
+                    <span class="col" (click)="deleteCategoryList(category)"><i class="fas fa-trash-alt"></i></span>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,33 @@
+<div class="card mt-3">
+    <h4 class="card-header text-center">Select User</h4>
+    <div class="card-body">
+
+        <form [formGroup]="selectUser" *ngIf="allUSers" (ngSubmit)="saveDataToTransation()">
+            <div class="row">
+                <div class="col-12">
+                    <select name="userslist" id="list" formControlName="select">
+                        <option value="">select</option>
+                        <option [value]="user._id" *ngFor="let user of allUSers; let i = index;"><b>Name:</b> {{user.name}}
+                            <b>Email:</b> <span>{{user.email}}</span></option>
+                    </select>
+    
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="mr-3 rounded-pill bg-success text-white border-0 px-5 py-2"
+                                 [disabled]="selectUser.invalid">Save</button>
+                        </div>
+                        <div class="col">
+                            <button class="rounded-pill bg-secodary text-dark border-0 px-5 py-2">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</div>

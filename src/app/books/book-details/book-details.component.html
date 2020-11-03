@@ -1,0 +1,91 @@
+<div *ngIf="oneBook">
+    <div class="row mt-4 justify-content-center">
+        <div class="card col-12 col-md-6">
+            <div class="card-body">
+                <h5 class="card-title">Book Details</h5>
+
+                <div class="row mb-3">
+                    <div class="col-12 mb-2">
+                        <div class="row">
+                            <div class="col-6">
+                                <b class="mr-3">Title:</b>
+                            </div>
+                            <div class="col-6">
+                                <span>{{oneBook?.bookTitle}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <div class="row">
+                            <div class="col">
+                                <b class="mr-3">Author:</b>
+                            </div>
+                            <div class="col">
+                                <span>{{oneBook?.author}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <div class="row">
+                            <div class="col">
+                                <b class="mr-3">Year Of Publishing:</b>
+                            </div>
+                            <div class="col">
+                                <span>{{oneBook?.YoP | date}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <div class="row">
+                            <div class="col">
+                                <b class="mr-3">Category:</b>
+                            </div>
+                            <div class="col">
+                                <span>{{oneBook?.category?.name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-2" (click)="editBookDetails(oneBook)">
+                        <span><i class="fas fa-user-edit"></i> </span>
+                    </div>
+                    <div class="col-2">
+                        <span><i class="fas fa-trash-alt" (click)="deleteBookDetails(oneBook)"></i></span>
+                    </div>
+                    <div class="col-4">
+                        <button class="px-3 py-2 rounded-pill text-white bg-success border-0"
+                            (click)="selectUser()">Leand
+                            Book</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between my-4">
+            <h3>Transaction Details</h3>
+        </div>
+        <table class="table">
+            <tr class="row">
+                <th class="col">S.No</th>
+                <th class="col">User Name</th>
+                <th class="col">Email</th>
+                <th class="col">Book Name</th>
+                <th class="col">CreatedDate</th>
+            </tr>
+            <tr class="row" *ngFor="let transaction of transactionDetails; let i = index;">
+                <td class="col">{{i+1}}</td>
+                <td class="col">{{transaction?.userinfo?.name}}</td>
+                <td class="col">{{transaction?.userinfo?.email}}</td>
+                <td class="col">{{transaction?.bookinfo?.bookTitle}}</td>
+                <td class="col">{{transaction?.createdAt | date}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

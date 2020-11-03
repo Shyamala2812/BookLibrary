@@ -1,0 +1,87 @@
+<div *ngIf="oneUser">
+    <div class="row mt-4 justify-content-center">
+        <div class="card col-12 col-md-6">
+            <div class="card-body">
+                <h5 class="card-title">User Details</h5>
+
+                <div class="row mb-3">
+                    <div class="col-12 mb-2">
+                        <div class="row">
+                            <div class="col-6">
+                                <b class="mr-3">User Name:</b>
+                            </div>
+                            <div class="col-6">
+                                <span>{{oneUser?.name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <div class="row">
+                            <div class="col">
+                                <b class="mr-3">Email:</b>
+                            </div>
+                            <div class="col">
+                                <span>{{oneUser?.email}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <div class="row">
+                            <div class="col">
+                                <b class="mr-3">Phone No:</b>
+                            </div>
+                            <div class="col">
+                                <span>{{oneUser?.phoneNo}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <div class="row">
+                            <div class="col">
+                                <b class="mr-3">Address</b>
+                            </div>
+                            <div class="col">
+                                <span>{{oneUser?.address}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-2" (click)="editUserData(oneUser)">
+                        <span><i class="fas fa-user-edit"></i> </span>
+                    </div>
+                    <div class="col-2" (click)="deleteUserData(oneUser)">
+                        <span><i class="fas fa-trash-alt"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between my-4">
+            <h3>Transaction Details</h3>
+        </div>
+        <table class="table">
+            <tr class="row">
+                <th class="col">S.No</th>
+                <th class="col">User Name</th>
+                <th class="col">BookName</th>
+                <th class="col">Email</th>
+                <th class="col">PhoneNo</th>
+                <th class="col">Address</th>
+            </tr>
+            <tr class="row" *ngFor="let user of UserData; let i = index;">
+                <td class="col">{{i+1}}</td>
+                <td class="col">{{user.userinfo?.name}}</td>
+                <td class="col">{{user?.bookinfo?.bookTitle}}</td>
+                <td class="col">{{user?.userinfo?.email}}</td>
+                <td class="col">{{user?.userinfo?.phoneNo}}</td>
+                <td class="col">{{user?.userinfo?.address}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
