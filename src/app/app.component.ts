@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
 
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.router.events.subscribe(a => {
       if (a instanceof NavigationEnd) {
         this.token = localStorage.getItem('token');
@@ -30,6 +30,5 @@ export class AppComponent implements OnInit{
   logoutApplication(): void {
     localStorage.removeItem('token');
     this.router.navigate(['/']);
-    
   }
 }
