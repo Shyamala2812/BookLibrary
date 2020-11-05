@@ -5,6 +5,7 @@ import { BooksRoutingModule } from './books/books-routing.module';
 import { BooksComponent } from './books/books.component';
 import { BookslistComponent } from './books/bookslist/bookslist.component';
 import { CategoryComponent } from './category/category.component';
+import { LoginComponent } from './login/login.component';
 import { UserDetailsComponent } from './user/user-details/user-details.component';
 import { UserComponent } from './user/user.component';
 import { UserslistComponent } from './user/userslist/userslist.component';
@@ -12,8 +13,11 @@ import { UserslistComponent } from './user/userslist/userslist.component';
 const routes: Routes = [
     {
         path: '',
-        component: CategoryComponent,
-        pathMatch: 'full'
+        component: LoginComponent
+    },
+    {
+        path: 'category',
+        component: CategoryComponent
     },
     {
         path: 'books',
@@ -43,10 +47,10 @@ const routes: Routes = [
             }
         ]
     },
-    // {
-    //     path: '**',
-    //     component: CategoryComponent
-    // }
+    {
+        path: '**',
+        component: LoginComponent
+    }
 
 ];
 

@@ -9,11 +9,13 @@ import { CategoryModule } from './category/category.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BooksModule } from './books/books.module';
 import { UserModule } from './user/user.module';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

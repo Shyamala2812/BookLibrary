@@ -23,6 +23,7 @@ export class EditAddUserComponent implements OnInit {
     this.User = this.fb.group({
       name: [this.edit_Add_Data?.event?.name, Validators.required],
       email: [this.edit_Add_Data?.event?.email, Validators.required],
+      password: [''],
       phoneNo: [this.edit_Add_Data?.event?.phoneNo, Validators.required],
       address: [this.edit_Add_Data?.event?.address, Validators.required],
     });
@@ -45,8 +46,9 @@ export class EditAddUserComponent implements OnInit {
         console.log('Failed to save user data');
       }
     } else {
+      const addData = {...data, password: this.User.get('password').value};
       try {
-        await this.userService.createUsersList(data);
+        await this.userService.createUsersList(addData);
         this.activeModal.close('added successfully');
       } catch (error) {
         console.log('Failed to add user data');

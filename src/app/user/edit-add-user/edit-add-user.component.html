@@ -17,6 +17,10 @@
                         <label for="auth" class="col">Email</label>
                         <input type="text" formControlName="email" id="auth" class="col">
                     </div>
+                    <div class="row mb-3" *ngIf="edit_Add_Data.type == 'Add'">
+                        <label for="pass" class="col">Password</label>
+                        <input type="password" formControlName="password" id="pass" class="col">
+                    </div>
                     <div class="row mb-3">
                         <label for="yop" class="col">Phone Number</label>
                         <input type="Number" formControlName="phoneNo" id="yop" class="col">

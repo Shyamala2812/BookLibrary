@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   page = 'category';
   title = 'library';
+
+  constructor(private router: Router) {
+  }
+
+
+  logoutApplication(): void {
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
+
+  }
 }
